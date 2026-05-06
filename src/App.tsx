@@ -367,8 +367,8 @@ const StatsBar = () => {
             transition={{ delay: index * 0.1 }}
             className="text-center"
           >
-            <div className="font-display text-6xl font-semibold text-slate-900 tracking-tighter mb-1">{stat.value}{stat.suffix}</div>
-            <div className="text-sm uppercase tracking-widest text-slate-500 font-medium">{stat.label}</div>
+            <div className="font-display text-4xl font-semibold text-slate-900 tracking-tighter mb-1">{stat.value}{stat.suffix}</div>
+            <div className="text-xs uppercase tracking-widest text-slate-500 font-medium">{stat.label}</div>
           </motion.div>
         ))}
       </div>
