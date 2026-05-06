@@ -755,14 +755,14 @@ const ProfileModal = ({ member, isOpen, onClose }: { member: Member | null; isOp
             className="fixed inset-0 z-[110] flex items-center justify-center p-4"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="bg-white max-w-4xl w-full max-h-[92vh] overflow-auto rounded-3xl shadow-2xl">
+            <div className="bg-white max-w-4xl w-full max-h-[92vh] overflow-y-auto overflow-x-hidden rounded-3xl shadow-2xl">
               {/* Cover */}
               <div className="relative h-80">
                 <img src={member.coverPhoto} className="absolute inset-0 w-full h-full object-cover" alt="" />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/70" />
-                
-                <button onClick={onClose} className="absolute top-6 right-6 bg-black/60 hover:bg-black text-white w-10 h-10 rounded-2xl flex items-center justify-center backdrop-blur">
-                  ✕
+
+                <button onClick={onClose} className="absolute top-4 right-4 md:top-6 md:right-6 bg-black/70 hover:bg-black text-white w-12 h-12 md:w-10 md:h-10 rounded-full flex items-center justify-center backdrop-blur-md transition-all duration-200 shadow-lg">
+                  <X className="w-6 h-6 md:w-5 md:h-5" />
                 </button>
                 
                 <div className="absolute bottom-0 left-0 p-10 flex items-end gap-8 w-full">
@@ -1309,9 +1309,10 @@ function AppContent() {
     openModal('profile');
   };
   
-  // Auto close modal on route change
+  // Auto close modal and scroll to top on route change
   useEffect(() => {
     if (activeModal) closeModal();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [location.pathname]);
   
   return (
